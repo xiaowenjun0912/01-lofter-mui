@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="./js/jquery-1.12.4.min.js"></script>
+    <link rel="stylesheet" href="./lib/swiper/swiper.min.css">
+    <script src="./lib/swiper/js/swiper.min.js"></script>
+
+    <!-- 引入mui的文件 -->
+    <link rel="stylesheet" href="./lib/mui/css/mui.min.css">
+    <script src="./lib/mui/js/mui.min.js"></script>
+
+    <script src="./js/common.js"></script>
+    <link rel="stylesheet" href="./css/index.css">
+    <!-- 关注模块的css代码 -->
+    <link rel="stylesheet" href="./css/care.css">
+    <link rel="stylesheet" href="./css/order.css">
+
+    <style>
+        body {
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <!-- 内容区域 -->
+        <div class="content">
+            <div class="mui-slider">
+                <div class="mui-slider-group">
+                    <!-- 每一屏 -->
+                  <div class="mui-slider-item care">
+                    <!-- 实现内部滚动 -->
+                    <div class="mui-scroll-wrapper">
+                        <div class="mui-scroll">
+                            <!--这里放置真实显示的DOM内容-->
+                        </div>
+                    </div>
+                  </div>
+
+
+                  <div class="mui-slider-item order">
+                      <!-- 默认position是absolue -->
+                        <div class="mui-scroll-wrapper">
+                            <div class="mui-scroll">
+                                <!--这里放置真实显示的DOM内容-->
+                            </div>
+                        </div>
+                  </div>
+                </div>
+
+                <!-- 小点点 -->
+                <div class="mui-slider-indicator">
+                    <div class="mui-indicator mui-active">关注</div>
+                    <div class="mui-indicator">订阅</div>
+                </div>
+            </div>
+        </div>
+        <!-- 占位区域 -->
+        <div class="placeholder"></div>
+    </div>
+
+    <div class="tabbar">
+        <a href="./index.html" class="active">
+            <img src="./img/01-app-icons/tab_01.png" alt="">
+            <p class="title">首页</p>
+        </a>
+        <a href="./find.html">
+            <img src="./img/01-app-icons/tab_02.png" alt="">
+            <p class="title">发现</p>
+        </a>
+        <a href="">
+            <img src="./img/01-app-icons/tab_camera.png" alt="">
+        </a>
+        <a href="./message.html">
+            <img src="./img/01-app-icons/tab_03.png" alt="">
+            <p class="title">消息</p>
+        </a>
+        <a href="./mine.html">
+            <img src="./img/01-app-icons/tab_04.png" alt="">
+            <p class="title">我的</p>
+        </a>
+    </div>
+
+    <script>
+        $(function() {
+            //让轮播效果生效
+            var gallery = mui('.mui-slider');
+            gallery.slider({
+            interval:0//自动轮播周期，若为0则不自动播放，默认为0；
+            });
+            
+            // 让区域滚动生效
+            mui('.mui-scroll-wrapper').scroll();
+
+            // 使用ajax来获取关注页面
+            $.get("./care.html", function(response) {
+                $(".care .mui-scroll").html(response);
+            });
+
+            // 使用ajax获取订阅页面
+            $.get("./order.html", function(response) {
+                console.log(response);
+                $(".order .mui-scroll").html(response);
+            })
+        });
+    </script>
+</body>
+</html>

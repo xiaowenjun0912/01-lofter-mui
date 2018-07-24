@@ -1,0 +1,129 @@
+@import "./common.scss";
+
+.main {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .content {
+        // border: pr(5) solid #f00;
+        flex:1;
+        position: relative;
+
+        .mui-scroll {
+            //搜索框
+            .searchbar {
+                height: pr(110);
+                width: 100%;
+                padding: pr(10);
+                background-color: #fff;
+                
+                input {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: pr(10);
+                    background-color: lightgray;
+                    border: none;
+                    outline: none;
+                    padding-left: pr(120);
+                }
+
+                .glass {
+                    position: absolute;
+                    left: pr(40);
+                    top: pr(26);
+                    width: pr(50);
+                }
+
+                .user {
+                    position: absolute;
+                    right: pr(40);
+                    top: pr(20);
+                    width: pr(70);
+                }
+            }
+
+            //banner
+            .mui-slider {
+                img {
+                    width: 100%;
+                }
+            }
+
+            //3d轮播效果
+            .ddd {
+                margin-top: pr(30);
+                width: 100%;
+                .swiper-container3 {
+                    width: 100%;
+                    .swiper-slide {
+                        width: 80%;
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: flex-start;
+
+                        p {
+                            width: 100%;
+                            height: pr(80);
+                            color: #666;
+                            text-align: center;
+                            line-height: pr(80);
+                            background-color: #fff;
+                        }
+
+                        img {
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .placeholder {
+        flex-basis: pr(118);
+    }
+}
+
+.tabbar {
+    position: fixed;
+    bottom: 0rem;
+    left: 0rem;
+    height: 1.5733rem;
+    width: 100%;
+    background-color: #d3d3d3;
+
+    display: flex;
+
+    justify-content: space-around;
+
+    a {
+        padding: 0rem 0.2667rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.32rem;
+        color: #487071;
+        opacity: 0.5;
+        img {
+            height: 0.7467rem;
+        }
+
+        p {
+            margin-top: 0.08rem;
+            margin-bottom: 0;
+        }
+
+        &.active {
+            opacity: 1;
+        }
+
+        &:nth-child(3) {
+            opacity: 1;
+            img {
+                height: 1.0667rem;
+            }
+        }
+    }
+}
